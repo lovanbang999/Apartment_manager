@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb+srv://lovanbangbox9:bang14112004@cluster0.czcssls.mongodb.net/', {
-            useCreateIndex: true,
+        await mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: false,
         });
         console.log('Connect successfully!!!');
     } catch (error) {

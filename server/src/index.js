@@ -1,19 +1,24 @@
+// Import packages
 const express = require('express');
 const morgan = require('morgan');
-const app = express();
+const dotenv = require('dotenv');
 
 const db = require('./config/db');
+const routes = require('./routers');
 
+const app = express();
 const port = 3000;
+app.use(express.json());
 
 app.use(morgan('combined'));
 
-// Connect to DB
-db.connect;
+dotenv.config();
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+// Connect to DB
+db.connect();
+
+// Router init
+routes(app);
 
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
