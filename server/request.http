@@ -2,7 +2,7 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "lovanbang",
+    "username": "lovanbang3",
     "password": "bang14112004"
 }
 
@@ -13,4 +13,14 @@ Content-Type: application/json
 {
     "username": "lovanbang",
     "password": "bang14112004"
+}
+
+###
+POST http://localhost:3000/api/posts
+Content-Type: application/json
+
+{
+    "title": "My first post",
+    "description": "hello",
+    "url": "google.com"
 }

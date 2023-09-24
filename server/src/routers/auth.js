@@ -3,9 +3,9 @@ const router = express.Router();
 const agon2 = require('argon2');
 const jwt = require('jsonwebtoken');
 
-const User = require('../app/models/user');
+const User = require('../app/models/User');
 
-// @router POST /auth/register
+// @router [POST] /auth/register
 // @desc Register user
 // @access public
 router.post('/register', async (req, res) => {
@@ -37,7 +37,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// @router POST /auth/login
+// @router [POST] /auth/login
 // @desc Login user
 // @access public
 router.post('/login', async (req, res) => {
