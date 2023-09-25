@@ -31,7 +31,7 @@ GET http://localhost:3000/api/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmMGI1ZmNlZmM3MzYxYjc1OTBhNGMiLCJpYXQiOjE2OTU1NDg4NzV9.P91UExDf8V4CUKhy8RMQJb_01jB7KizhgeRuDA9LYzA
 
 ###
-PUT http://localhost:3000/api/posts/650fecb9b916c0f3b430873e
+PUT http://localhost:3000/api/posts/650fe4520bd64f728453d86f
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmMGI1ZmNlZmM3MzYxYjc1OTBhNGMiLCJpYXQiOjE2OTU1NDg4NzV9.P91UExDf8V4CUKhy8RMQJb_01jB7KizhgeRuDA9LYzA
 
@@ -42,5 +42,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmM
 }
 
 ###
-DELETE http://localhost:3000/api/posts/650fecb9b916c0f3b430873e
+DELETE http://localhost:3000/api/posts/650fe4520bd64f728453d86f
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmMGI1ZmNlZmM3MzYxYjc1OTBhNGMiLCJpYXQiOjE2OTU1NDg4NzV9.P91UExDf8V4CUKhy8RMQJb_01jB7KizhgeRuDA9LYzA
