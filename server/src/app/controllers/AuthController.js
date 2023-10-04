@@ -9,7 +9,7 @@ class AuthController {
     // @access Public
     async index(req, res) {
         try {
-            const user = await User.findById(req.userId).select('-password');
+            const user = await User.findById(req.userId).select('-password -email');
 
             if (!user) return res.status(400).json({ success: false, message: 'User not found' });
 
@@ -24,10 +24,10 @@ class AuthController {
     // @desc Register user
     // @access public
     async register(req, res) {
-        const { username, password } = req.body;
+        const { username, email, password } = req.body;
 
         // simple vadidation [Can use the libraray later]
-        if (!username || !password)
+        if (!username || !email || !password)
             return res.status(400).json({ success: false, message: 'Missing username and/or password' });
 
         try {
@@ -39,7 +39,7 @@ class AuthController {
             // All good
             const hashedPassword = await agon2.hash(password);
 
-            const newUser = new User({ username, password: hashedPassword });
+            const newUser = new User({ username, email, password: hashedPassword });
             await newUser.save();
 
             // Return token
@@ -56,22 +56,24 @@ class AuthController {
     // @desc Login user
     // @access public
     async login(req, res) {
-        const { username, password } = req.body;
+        const { username, email, password } = req.body;
 
         // simple vadidation [Can use the libraray later]
-        if (!username || !password)
+        if (!username || !email || !password)
             return res.status(400).json({ success: false, message: 'Missing username and/or password' });
 
         try {
             // Check for existing user
             const user = await User.findOne({ username });
 
-            if (!user) return res.status(400).json({ success: false, message: 'Incorrect username or password' });
+            if (!user) return res.status(400).json({ success: false, message: 'Incorrect username or email/password' });
 
             // Username found
+            // Check valid password and email valid
             const passwordValid = await agon2.verify(user.password, password);
-            if (!passwordValid)
-                return res.status(400).json({ success: false, message: 'Incorrect username or password' });
+            const emailValid = user.email === email;
+            if (!passwordValid || !emailValid)
+                return res.status(400).json({ success: false, message: 'Incorrect username or email/password' });
 
             // All good
             const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET);

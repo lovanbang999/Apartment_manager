@@ -66,7 +66,7 @@ function RegisterFrom() {
                 <h3 className={cx('heading')}>Đăng Ký</h3>
                 <AlertMessage info={alert} />
                 <Form.Group className={cx('form-group')}>
-                    <Form.Label className={cx('form-label')} for="username">
+                    <Form.Label className={cx('form-label')} htmlFor="username">
                         Tên đăng nhập
                     </Form.Label>
                     <Form.Control
@@ -81,7 +81,7 @@ function RegisterFrom() {
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group className={cx('form-group')}>
-                    <Form.Label className={cx('form-label')} for="email">
+                    <Form.Label className={cx('form-label')} htmlFor="email">
                         Email
                     </Form.Label>
                     <Form.Control
@@ -96,7 +96,7 @@ function RegisterFrom() {
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group className={cx('form-group')}>
-                    <Form.Label className={cx('form-label')} for="password">
+                    <Form.Label className={cx('form-label')} htmlFor="password">
                         Mật khẩu
                     </Form.Label>
                     <Form.Control
@@ -111,7 +111,7 @@ function RegisterFrom() {
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group className={cx('form-group')}>
-                    <Form.Label className={cx('form-label')} for="confirm-password">
+                    <Form.Label className={cx('form-label')} htmlFor="confirm-password">
                         Nhập lại mật khẩu
                     </Form.Label>
                     <Form.Control
