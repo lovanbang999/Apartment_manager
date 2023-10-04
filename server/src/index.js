@@ -2,14 +2,16 @@
 const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 const db = require('./config/db');
 const routes = require('./routers');
 
 const app = express();
-const port = 3000;
-app.use(express.json());
+const port = 5000;
 
+app.use(express.json());
+app.use(cors());
 app.use(morgan('combined'));
 
 dotenv.config();

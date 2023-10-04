@@ -1,4 +1,4 @@
-POST http://localhost:3000/api/auth/register
+POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
@@ -7,7 +7,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/auth/login
+POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/posts
+POST http://localhost:5000/api/posts
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmZWQzYjg2NzdmNDFjNTkyNGY5MDQiLCJpYXQiOjE2OTU1NDI1ODd9.GCJ4lqlV014n4k4tC3eP1nlbVQsK_G2_XUmV-CcaWpU
 
@@ -27,11 +27,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmZ
 }
 
 ###
-GET http://localhost:3000/api/posts
+GET http://localhost:5000/api/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmMGI1ZmNlZmM3MzYxYjc1OTBhNGMiLCJpYXQiOjE2OTU1NDg4NzV9.P91UExDf8V4CUKhy8RMQJb_01jB7KizhgeRuDA9LYzA
 
 ###
-PUT http://localhost:3000/api/posts/650fe4520bd64f728453d86f
+PUT http://localhost:5000/api/posts/650fe4520bd64f728453d86f
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBmMGI1ZmNlZmM3MzYxYjc1OTBhNGMiLCJpYXQiOjE2OTU1NDg4NzV9.P91UExDf8V4CUKhy8RMQJb_01jB7KizhgeRuDA9LYzA
 

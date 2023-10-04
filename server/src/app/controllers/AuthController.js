@@ -4,7 +4,23 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 class AuthController {
-    // @router [POST] /auth/register
+    // @router [GET] api/auth
+    // @desc Check if user is login
+    // @access Public
+    async index(req, res) {
+        try {
+            const user = await User.findById(req.userId).select('-password');
+
+            if (!user) return res.status(400).json({ success: false, message: 'User not found' });
+
+            res.status(200).json({ success: true, user });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ success: false, message: 'Internal server error!' });
+        }
+    }
+
+    // @router [POST] api/auth/register
     // @desc Register user
     // @access public
     async register(req, res) {
@@ -36,7 +52,7 @@ class AuthController {
         }
     }
 
-    // @router [POST] /auth/login
+    // @router [POST] api/auth/login
     // @desc Login user
     // @access public
     async login(req, res) {
@@ -50,11 +66,12 @@ class AuthController {
             // Check for existing user
             const user = await User.findOne({ username });
 
-            if (!user) return res.status(400).json({ success: false, message: 'Incorrect username' });
+            if (!user) return res.status(400).json({ success: false, message: 'Incorrect username or password' });
 
             // Username found
             const passwordValid = await agon2.verify(user.password, password);
-            if (!passwordValid) return res.status(400).json({ success: false, message: 'Incorrect password' });
+            if (!passwordValid)
+                return res.status(400).json({ success: false, message: 'Incorrect username or password' });
 
             // All good
             const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET);
