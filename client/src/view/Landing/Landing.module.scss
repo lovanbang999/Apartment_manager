@@ -1,0 +1,245 @@
+.container {
+    min-height: 1000px;
+    background-color: var(--second-color);
+    margin-top: var(--header-height);
+    padding: 0 32px;
+    position: relative;
+    z-index: 0;
+}
+
+.intro-wrapper {
+    margin: 0 32px;
+    border-bottom: 2px solid #333;
+}
+
+.intro-inner {
+    padding-top: 100px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    width: 40%;
+}
+
+.intro {
+    text-align: center;
+    margin-right: 32px;
+}
+
+.intro-header {
+    font-size: 5rem;
+    color: var(--primary-color);
+}
+
+.intro-desc {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    margin-left: 36px;
+}
+
+.intro-paragh {
+    font-size: 1.6rem;
+    margin-left: 95px;
+    span {
+        text-align: left;
+        display: block;
+        width: 400px;
+    }
+}
+
+// Advantage
+.advantage-wrapper {
+    margin: 0 32px;
+    border-bottom: 2px solid #333;
+}
+
+.advantage-inner {
+    padding-top: 100px;
+    padding-bottom: 120px;
+}
+
+.advantage-header {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 5rem;
+    margin-bottom: 24px;
+}
+
+.advantage-desc {
+    text-align: center;
+    margin-bottom: 95px;
+    font-size: 2.4rem;
+    color: var(--primary-color);
+}
+
+.advan-list {
+    display: flex;
+}
+
+.advan-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.advan-item + .advan-item {
+    margin-left: 32px;
+}
+
+.advan-item-img {
+    margin-bottom: 16px;
+}
+
+.advan-item-heading {
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.advan-item-desc {
+    text-align: left;
+    font-size: 1.6rem;
+}
+
+// Admin feature
+.feature-admin-wrapper {
+    margin: 0 32px;
+    border-bottom: 2px solid #333;
+}
+
+.feature-admin-inner {
+    padding-top: 100px;
+    padding-bottom: 120px;
+}
+
+.feature-admin-header {
+    color: var(--primary-color);
+    font-size: 5rem;
+    text-align: center;
+    padding: 0 300px;
+}
+
+.feature-admin-desc {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 0 256px;
+    margin: 32px 0 64px;
+}
+
+.feature-admin-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-admin-item {
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature-admin-item:first-child {
+    padding: 0 10%;
+}
+
+.feature-admin-item + .feature-admin-item {
+    margin-top: 24px;
+}
+
+.feature-admin-item-inner {
+    max-width: 45%;
+    border-radius: 20px;
+    padding: 8px 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+    position: relative;
+}
+
+.feature-admin-item-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -15px;
+    width: 50px;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(129, 129, 129, 0.5);
+    z-index: -1;
+}
+
+.feature-admin-item-img {
+    img {
+        width: 80px;
+    }
+}
+
+.feature-admin-item-title {
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.feature-admin-item-decs {
+    text-align: left;
+}
+
+
+// User feature
+.feature-user-wrapper {
+    margin: 0 64px;
+    border-bottom: 2px solid #333;
+    --color-1: #67737c;
+    --color-2: #9A8787;
+    --color-3: #007C7E;
+    --color-4: #786CA8;
+}
+
+.feature-user-inner {
+    padding-top: 100px;
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.feature-user-img {
+    width: 55%;
+    img {
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+
+.feature-user-content {
+    margin-left: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.feature-user-item {
+    display: flex;
+    align-items: center;
+}
+
+.feature-user-icon {
+    svg {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.feature-user-title {
+    display: flex;
+    flex-direction: column;
+    margin-left: 14px;
+}
+
+.feature-user-underline {
+    margin-top: 8px;
+    border-bottom: 1px solid #333;
+}

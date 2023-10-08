@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
+    --primary-color: #007c7e;
+    --second-color: #EFEFEF;
     --white-color: #fff;
-    --primary-color: #1dbfaf;
+    --black-color: #000;
     --text-color: #333;
+    --border-none-color: #ccc;
+    --header-height: 85px;
 }
 
 * {

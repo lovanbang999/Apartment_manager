@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
 
-import LoginForm from '../components/Auth/LoginForm';
-import RegisterForm from '../components/Auth/RegisterForm';
-import { AuthContext } from '../contexts/AuthContext';
+import LoginForm from '../../components/Auth/LoginForm';
+import RegisterForm from '../../components/Auth/RegisterForm';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function Auth({ authRoute }) {
     let body;
