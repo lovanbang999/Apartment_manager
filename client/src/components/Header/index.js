@@ -2,6 +2,8 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 
+
+
 import style from './Header.module.scss';
 import images from '../../assets/img';
 import Button from '../Button';
@@ -27,7 +29,7 @@ function Header() {
                     0336715316
                 </Button>
                 <Button primary br10 to="/login" leftIcon={<FontAwesomeIcon icon={faUser} />}>
-                    Dăng nhập
+                    Đăng nhập
                 </Button>
             </div>
         </header>

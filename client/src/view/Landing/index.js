@@ -5,6 +5,7 @@ import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import style from './Landing.module.scss';
 import Header from '../../components/Header';
 import images from '../../assets/img';
+import Footer from '../../components/Footer';
 
 const cx = classNames.bind(style);
 
@@ -221,6 +222,7 @@ function Landing() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }
