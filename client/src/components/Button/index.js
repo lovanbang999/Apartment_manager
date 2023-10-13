@@ -34,6 +34,7 @@ function Button({
     disabled = false,
     genus = 'small',
     br10 = false,
+    icon16 = false,
     style = {},
     children,
     className,
@@ -50,6 +51,7 @@ function Button({
         outline,
         outlinePrimary,
         br10,
+        icon16,
         disabled,
     });
     return (

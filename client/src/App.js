@@ -6,6 +6,7 @@ import Auth from './view/Auth';
 import AuthContextProvider from './contexts/AuthContext';
 import Home from './view/Home';
 import ProtectedRoute from './components/routing/ProtectedRoute';
+import Admin from './view/Admin';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route exact path="/login" element={<Auth authRoute="login" />} />
                     <Route exact path="/register" element={<Auth authRoute="register" />} />
                     <Route exact path="/home" element={<ProtectedRoute component={Home} />} />
+                    <Route exact path="/admin" element={<ProtectedRoute component={Admin} />} />
                 </Routes>
             </Router>
         </AuthContextProvider>

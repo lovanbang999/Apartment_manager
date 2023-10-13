@@ -15,30 +15,31 @@ function Header({ actionsBtn }) {
                 </a>
             </div>
             <div className={cx('actions')}>
-                {actionsBtn.map((button, index) => {
-                    const { children, icon, ...properties } = button;
+                {actionsBtn &&
+                    actionsBtn.map((button, index) => {
+                        const { children, icon, ...properties } = button;
 
-                    console.log(properties.className);
-                    return (
-                        <Button
-                            key={index}
-                            leftIcon={properties.leftIcon}
-                            rightIcon={properties.rightIcon}
-                            primary={properties.primary}
-                            genus={properties.genus || 'small'}
-                            disabled={properties.disabled}
-                            outline={properties.outline}
-                            outlinePrimary={properties.outlinePrimary}
-                            href={properties.href || null}
-                            to={properties.to || null}
-                            br10={properties.br10 || false}
-                            style={properties.style || null}
-                            className={cx(properties.className) || ''}
-                        >
-                            {children}
-                        </Button>
-                    );
-                })}
+                        return (
+                            <Button
+                                key={index}
+                                leftIcon={properties.leftIcon}
+                                rightIcon={properties.rightIcon}
+                                primary={properties.primary}
+                                genus={properties.genus || 'small'}
+                                disabled={properties.disabled}
+                                outline={properties.outline}
+                                outlinePrimary={properties.outlinePrimary}
+                                href={properties.href || null}
+                                to={properties.to || null}
+                                br10={properties.br10 || false}
+                                icon16={properties.icon16 || false}
+                                style={properties.style || null}
+                                className={cx(properties.className) || ''}
+                            >
+                                {children}
+                            </Button>
+                        );
+                    })}
             </div>
         </header>
     );
