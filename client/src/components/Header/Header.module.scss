@@ -19,8 +19,10 @@
     height: 60px;
 }
 
+.actions {
+    display: flex;
+}
+
 .action-icon {
-    span {
-        color: var(--primary-color);
-    }
+    color: var(--primary-color);
 }

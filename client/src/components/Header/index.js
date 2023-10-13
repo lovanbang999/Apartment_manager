@@ -1,8 +1,4 @@
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretDown, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
-
-
 
 import style from './Header.module.scss';
 import images from '../../assets/img';
@@ -10,7 +6,7 @@ import Button from '../Button';
 
 const cx = classNames.bind(style);
 
-function Header() {
+function Header({ actionsBtn }) {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('logo')}>
@@ -19,18 +15,30 @@ function Header() {
                 </a>
             </div>
             <div className={cx('actions')}>
-                <Button rightIcon={<FontAwesomeIcon icon={faCaretDown} />} className={cx('action-icon')}>
-                    Tính năng
-                </Button>
-                <Button rightIcon={<FontAwesomeIcon icon={faCaretDown} />} className={cx('action-icon')}>
-                    Thông tin
-                </Button>
-                <Button primary br10 href="tel:0336715316" leftIcon={<FontAwesomeIcon icon={faPhone} />}>
-                    0336715316
-                </Button>
-                <Button primary br10 to="/login" leftIcon={<FontAwesomeIcon icon={faUser} />}>
-                    Đăng nhập
-                </Button>
+                {actionsBtn.map((button, index) => {
+                    const { children, icon, ...properties } = button;
+
+                    console.log(properties.className);
+                    return (
+                        <Button
+                            key={index}
+                            leftIcon={properties.leftIcon}
+                            rightIcon={properties.rightIcon}
+                            primary={properties.primary}
+                            genus={properties.genus || 'small'}
+                            disabled={properties.disabled}
+                            outline={properties.outline}
+                            outlinePrimary={properties.outlinePrimary}
+                            href={properties.href || null}
+                            to={properties.to || null}
+                            br10={properties.br10 || false}
+                            style={properties.style || null}
+                            className={cx(properties.className) || ''}
+                        >
+                            {children}
+                        </Button>
+                    );
+                })}
             </div>
         </header>
     );

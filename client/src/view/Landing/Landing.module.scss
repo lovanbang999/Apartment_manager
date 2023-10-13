@@ -1,3 +1,11 @@
+.spinner-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     min-height: 1000px;
     background-color: var(--second-color);

@@ -1,10 +1,14 @@
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import Spinner from 'react-bootstrap/Spinner';
+import classNames from 'classnames/bind';
 
 import LoginForm from '../../components/Auth/LoginForm';
 import RegisterForm from '../../components/Auth/RegisterForm';
 import { AuthContext } from '../../contexts/AuthContext';
+import style from './Auth.module.scss';
+
+const cx = classNames.bind(style);
 
 function Auth({ authRoute }) {
     let body;
@@ -14,7 +18,7 @@ function Auth({ authRoute }) {
 
     if (authLoading) {
         body = (
-            <div className="d-flex justify-content-center mt-2">
+            <div className={cx('spinner-wrapper')}>
                 <Spinner animation="border" variant="info" />
             </div>
         );

@@ -1,7 +1,13 @@
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 import classNames from 'classnames/bind';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import PhoneIcon from '@mui/icons-material/Phone';
+import PersonIcon from '@mui/icons-material/Person';
+import FeedIcon from '@mui/icons-material/Feed';
 
+import { AuthContext } from '../../contexts/AuthContext';
 import style from './Landing.module.scss';
 import Header from '../../components/Header';
 import images from '../../assets/img';
@@ -10,9 +16,50 @@ import Footer from '../../components/Footer';
 const cx = classNames.bind(style);
 
 function Landing() {
+    const actionsHeader = [
+        {
+            children: 'Tính năng',
+            rightIcon: <ArrowDropDownIcon />,
+            className: 'action-icon',
+        },
+        {
+            children: 'Thông tin',
+            rightIcon: <ArrowDropDownIcon />,
+            className: 'action-icon',
+        },
+        {
+            children: '0336715316',
+            leftIcon: <PhoneIcon />,
+            primary: true,
+            href: 'tel:0336715316',
+            br10: true,
+        },
+        {
+            children: 'Đăng nhập',
+            rightIcon: <PersonIcon />,
+            primary: true,
+            to: '/login',
+            br10: true,
+        },
+    ];
+
+    const {
+        authState: { authLoading, isAuthenticated },
+    } = useContext(AuthContext);
+
+    if (authLoading) {
+        return (
+            <div className={cx('spinner-wrapper')}>
+                <Spinner animation="border" variant="info" />
+            </div>
+        );
+    } else if (isAuthenticated) {
+        return <Navigate to="/home" />;
+    }
+
     return (
         <div className={cx('wrapper')}>
-            <Header />
+            <Header actionsBtn={actionsHeader} />
             <div className={cx('container')}>
                 <div className={cx('intro-wrapper')}>
                     <div className={cx('intro-inner')}>
@@ -172,7 +219,7 @@ function Landing() {
                         <div className={cx('feature-user-content')}>
                             <div className={cx('feature-user-item')}>
                                 <div className={cx('feature-user-icon')} style={{ color: 'var(--color-1)' }}>
-                                    <FontAwesomeIcon icon={faNewspaper} />
+                                    <FeedIcon />
                                 </div>
                                 <div className={cx('feature-user-title')}>
                                     Thanh toán tiện lợi nhanh chóng
@@ -184,7 +231,7 @@ function Landing() {
                             </div>
                             <div className={cx('feature-user-item')}>
                                 <div className={cx('feature-user-icon')} style={{ color: 'var(--color-2)' }}>
-                                    <FontAwesomeIcon icon={faNewspaper} />
+                                    <FeedIcon />
                                 </div>
                                 <div className={cx('feature-user-title')}>
                                     Theo dõi lịch sử thanh toán
@@ -196,7 +243,7 @@ function Landing() {
                             </div>
                             <div className={cx('feature-user-item')}>
                                 <div className={cx('feature-user-icon')} style={{ color: 'var(--color-3)' }}>
-                                    <FontAwesomeIcon icon={faNewspaper} />
+                                    <FeedIcon />
                                 </div>
                                 <div className={cx('feature-user-title')}>
                                     Kiểm tra thông tin căn hộ
@@ -208,7 +255,7 @@ function Landing() {
                             </div>
                             <div className={cx('feature-user-item')}>
                                 <div className={cx('feature-user-icon')} style={{ color: 'var(--color-4)' }}>
-                                    <FontAwesomeIcon icon={faNewspaper} />
+                                    <FeedIcon />
                                 </div>
                                 <div className={cx('feature-user-title')}>
                                     Báo cáo sự cố hỏng hóc
@@ -222,7 +269,7 @@ function Landing() {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

@@ -78,7 +78,7 @@ class AuthController {
             // All good
             const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET);
 
-            res.json({ success: true, message: 'Login successfully', accessToken });
+            res.status(200).json({ success: true, message: 'Login successfully', accessToken });
         } catch (error) {
             console.log(error);
             res.status(500).json({ success: false, message: 'Internal server error!' });

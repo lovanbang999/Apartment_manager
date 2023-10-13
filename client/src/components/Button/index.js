@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
 import style from './Button.module.scss';
+import { Stack } from '@mui/material';
 
 const cx = classNames.bind(style);
 
@@ -31,13 +32,9 @@ function Button({
     outline = false,
     outlinePrimary = false,
     disabled = false,
-    small = false,
-    large = false,
-    br2 = false,
-    br4 = false,
-    br8 = false,
+    genus = 'small',
     br10 = false,
-    round = false,
+    style = {},
     children,
     className,
     leftIcon,
@@ -52,31 +49,26 @@ function Button({
         primary,
         outline,
         outlinePrimary,
-        disabled,
-        small,
-        large,
-        br2,
-        br4,
-        br8,
         br10,
-        round,
+        disabled,
     });
-
     return (
-        <Component className={classes} {...passProps}>
-            {leftIcon &&
-                (typeof leftIcon === 'string' ? (
-                    <img src={leftIcon} alt="left-icon" className={cx('icon')} />
-                ) : (
-                    <span className={cx('icon')}>{leftIcon}</span>
-                ))}
-            <span className={cx('title')}>{children}</span>
-            {rightIcon &&
-                (typeof rightIcon === 'string' ? (
-                    <img src={rightIcon} alt="right-icon" className={cx('icon')} />
-                ) : (
-                    <span className={cx('icon')}>{rightIcon}</span>
-                ))}
+        <Component className={classes} {...passProps} style={style}>
+            <Stack direction="row" gap={1} alignItems="center">
+                {leftIcon &&
+                    (typeof leftIcon === 'string' ? (
+                        <img src={leftIcon} alt="left-icon" className={cx('icon')} />
+                    ) : (
+                        leftIcon
+                    ))}
+                <span className={cx('title')}>{children}</span>
+                {rightIcon &&
+                    (typeof rightIcon === 'string' ? (
+                        <img src={rightIcon} alt="right-icon" className={cx('icon')} />
+                    ) : (
+                        rightIcon
+                    ))}
+            </Stack>
         </Component>
     );
 }

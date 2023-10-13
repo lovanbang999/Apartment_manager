@@ -12,8 +12,8 @@ const images = {
         businessAdminFeature: require('./Landing/business-admin-featrure.svg').default,
         bellAdminFeature: require('./Landing/bell-admin-featrure.svg').default,
     },
-    login: {
-        background: require('./Login/background-login.svg').default,
+    Auth: {
+        background: require('./Auth/Background.svg').default,
     },
 };
 
