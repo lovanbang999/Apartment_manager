@@ -11,14 +11,12 @@ class AuthController {
         try {
             const user = await User.findById(req.userId).select('-password -email');
 
-            // User not found
-            if (!user) return res.status(400).json({ success: false, message: 'Không tìm thấy người dùng' });
+            if (!user) return res.status(400).json({ success: false, message: 'User not found!' });
 
             res.status(200).json({ success: true, user });
         } catch (error) {
-            // Internal server error
             console.log(error);
-            res.status(500).json({ success: false, message: 'Lỗi từ phía máy chủ!' });
+            res.status(500).json({ success: false, message: 'Internal server error!' });
         }
     }
 
@@ -30,31 +28,27 @@ class AuthController {
 
         // simple vadidation [Can use the libraray later]
         if (!username || !email || !password)
-            // Missing username and/or password
-            return res.status(400).json({ success: false, message: 'Không tồn tại tên đăng nhập hoặc/và mật khẩu' });
+            return res.status(400).json({ success: false, message: 'Missing username and/or password' });
 
         try {
             // Check for existing user
             const user = await User.findOne({ username });
 
-            // Username already taken
-            if (user) return res.status(400).json({ success: false, message: 'Tên đăng nhập đã tồn tại' });
+            if (user) return res.status(400).json({ success: false, message: 'Username already taken' });
 
             // All good
             const hashedPassword = await agon2.hash(password);
 
-            const newUser = new User({ username, email, password: hashedPassword });
+            const newUser = new User({ username, email, password: hashedPassword, roles: { User: 2000 } });
             await newUser.save();
 
             // Return token
             const accessToken = jwt.sign({ userId: newUser._id }, process.env.ACCESS_TOKEN_SECRET);
 
-            // User created successfully
-            res.json({ success: true, message: 'Tạo tài khoản thành công', accessToken });
+            res.json({ success: true, message: 'User ceated successfully', accessToken });
         } catch (error) {
-            // Internal server error!
             console.log(error);
-            res.status(500).json({ success: false, message: 'Lỗi từ phía máy chủ!' });
+            res.status(500).json({ success: false, message: 'Internal server error!' });
         }
     }
 
@@ -66,17 +60,13 @@ class AuthController {
 
         // simple vadidation [Can use the libraray later]
         if (!username || !email || !password)
-            // Missing username and/or password
-            return res.status(400).json({ success: false, message: 'Không tồn tại tên đăng nhập hoặc/và mật khẩu' });
+            return res.status(400).json({ success: false, message: 'Missing username and/or password!' });
 
         try {
             // Check for existing user
             const user = await User.findOne({ username });
 
-            if (!user)
-                return res
-                    .status(400)
-                    .json({ success: false, message: 'Tên đăng nhập hoặc mật khẩu/email không đúng' });
+            if (!user) return res.status(400).json({ success: false, message: 'Incorrect username or email/password' });
 
             // Username found
             // Check valid password and email valid
@@ -84,19 +74,23 @@ class AuthController {
             const emailValid = user.email === email;
             if (!passwordValid || !emailValid)
                 // Incorrect username or email/password
-                return res
-                    .status(400)
-                    .json({ success: false, message: 'Tên đăng nhập hoặc mật khẩu/email không đúng' });
+                return res.status(400).json({ success: false, message: 'Incorrect username or email/password' });
 
             // All good
-            const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET);
+            const accessToken = jwt.sign(
+                {
+                    userInfor: {
+                        userId: user._id,
+                        roles: user.roles,
+                    },
+                },
+                process.env.ACCESS_TOKEN_SECRET,
+            );
 
-            // Login successfully
-            res.status(200).json({ success: true, message: 'Đăng nhập thành công', accessToken });
+            res.status(200).json({ success: true, message: 'Login successfully!', accessToken });
         } catch (error) {
-            // Internal server error
             console.log(error);
-            res.status(500).json({ success: false, message: 'Lỗi từ phía máy chủ!' });
+            res.status(500).json({ success: false, message: 'Internal server error!' });
         }
     }
 }
