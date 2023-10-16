@@ -89,8 +89,23 @@ const AuthContextProvider = ({ children }) => {
         }
     };
 
+    // Logout
+    const logoutUser = () => {
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
+        setAuthToken(null);
+        dispatch({
+            type: 'SET_AUTH',
+            payload: {
+                authLoading: {
+                    isAuthenticated: false,
+                    user: null,
+                },
+            },
+        });
+    };
+
     // Context data
-    const authContextData = { loginUser, registerUser, authState };
+    const authContextData = { loginUser, registerUser, logoutUser, authState };
 
     // Return provider
     return <AuthContext.Provider value={authContextData}>{children}</AuthContext.Provider>;

@@ -1,37 +1,49 @@
 import classNames from 'classnames/bind';
+import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faFileContract, faHouse } from '@fortawesome/free-solid-svg-icons';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Logout from '@mui/icons-material/Logout';
 
 import style from './Admin.module.scss';
 import Header from '../../components/Header';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
 function Admin() {
-    const actionsHeader = [
-        {
-            children: 'Thống kê',
-            rightIcon: <ArrowDropDownIcon />,
-            style: { color: 'var(--primary-color)' },
+    const {
+        authState: {
+            user: { username },
         },
+        logoutUser,
+    } = useContext(AuthContext);
+    const actionsHeader = [
         {
             children: 'Khách thuê',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
+            to: '/admin/tenant-list',
+        },
+        {
+            children: 'Danh sách hợp đồng',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/contract-list',
         },
         {
             children: 'Thông báo',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
+            disabled: true,
         },
         {
-            children: 'Tài khoản',
-            rightIcon: <AccountCircleIcon />,
+            children: 'Đăng xuất',
+            rightIcon: <Logout />,
             style: { color: 'var(--primary-color)' },
-            to: '/login',
+            onclick: logoutUser,
             icon16: true,
         },
     ];

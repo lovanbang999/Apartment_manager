@@ -1,38 +1,48 @@
 import classNames from 'classnames/bind';
-
+import { useContext } from 'react';
 import React from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 import style from './TenantList.module.scss';
 import Button from '../../../components/Button';
 import Header from '../../../components/Header';
 import 'bootstrap/dist/css/bootstrap.css';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
 function TenantList() {
+    const {
+        authState: {
+            user: { username },
+        },
+        logoutUser,
+    } = useContext(AuthContext);
     const actionsHeader = [
         {
             children: 'Thống kê',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
+            to: '/admin',
         },
         {
-            children: 'Khách thuê',
+            children: 'Danh sách hợp đồng',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
-            to: '/tenant-list',
+            to: '/admin/contract-list',
         },
         {
             children: 'Thông báo',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
+            disabled: true,
         },
         {
-            children: 'Tài khoản',
-            rightIcon: <AccountCircleIcon />,
+            children: 'Đăng xuất',
+            rightIcon: <LogoutIcon />,
             style: { color: 'var(--primary-color)' },
-            // to: '/login',
+            onclick: logoutUser,
             icon16: true,
         },
     ];
@@ -46,7 +56,7 @@ function TenantList() {
                             <h3>DANH SÁCH KHÁCH THUÊ</h3>
                             <div>
                                 <div className={cx('st-1')}>
-                                    <select className={cx('')} defaultValue="Chua_chon">
+                                    <select defaultValue="Chua_chon">
                                         <option disabled="disabled" value="Chua_chon" className={cx('select-title')}>
                                             Chọn Nhà
                                         </option>

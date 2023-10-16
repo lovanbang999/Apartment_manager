@@ -18,7 +18,6 @@ function Header({ actionsBtn }) {
                 {actionsBtn &&
                     actionsBtn.map((button, index) => {
                         const { children, icon, ...properties } = button;
-
                         return (
                             <Button
                                 key={index}
@@ -35,6 +34,7 @@ function Header({ actionsBtn }) {
                                 icon16={properties.icon16 || false}
                                 style={properties.style || null}
                                 className={cx(properties.className) || ''}
+                                onclick={properties.onclick || null}
                             >
                                 {children}
                             </Button>

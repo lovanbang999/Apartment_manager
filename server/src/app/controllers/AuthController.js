@@ -11,12 +11,14 @@ class AuthController {
         try {
             const user = await User.findById(req.userId).select('-password -email');
 
-            if (!user) return res.status(400).json({ success: false, message: 'User not found' });
+            // User not found
+            if (!user) return res.status(400).json({ success: false, message: 'Không tìm thấy người dùng' });
 
             res.status(200).json({ success: true, user });
         } catch (error) {
+            // Internal server error
             console.log(error);
-            res.status(500).json({ success: false, message: 'Internal server error!' });
+            res.status(500).json({ success: false, message: 'Lỗi từ phía máy chủ!' });
         }
     }
 
@@ -28,13 +30,15 @@ class AuthController {
 
         // simple vadidation [Can use the libraray later]
         if (!username || !email || !password)
-            return res.status(400).json({ success: false, message: 'Missing username and/or password' });
+            // Missing username and/or password
+            return res.status(400).json({ success: false, message: 'Không tồn tại tên đăng nhập hoặc/và mật khẩu' });
 
         try {
             // Check for existing user
             const user = await User.findOne({ username });
 
-            if (user) return res.status(400).json({ success: false, message: 'Username already taken' });
+            // Username already taken
+            if (user) return res.status(400).json({ success: false, message: 'Tên đăng nhập đã tồn tại' });
 
             // All good
             const hashedPassword = await agon2.hash(password);
@@ -45,10 +49,12 @@ class AuthController {
             // Return token
             const accessToken = jwt.sign({ userId: newUser._id }, process.env.ACCESS_TOKEN_SECRET);
 
-            res.json({ success: true, message: 'User created successfully', accessToken });
+            // User created successfully
+            res.json({ success: true, message: 'Tạo tài khoản thành công', accessToken });
         } catch (error) {
+            // Internal server error!
             console.log(error);
-            res.status(500).json({ success: false, message: 'Internal server error!' });
+            res.status(500).json({ success: false, message: 'Lỗi từ phía máy chủ!' });
         }
     }
 
@@ -60,28 +66,37 @@ class AuthController {
 
         // simple vadidation [Can use the libraray later]
         if (!username || !email || !password)
-            return res.status(400).json({ success: false, message: 'Missing username and/or password' });
+            // Missing username and/or password
+            return res.status(400).json({ success: false, message: 'Không tồn tại tên đăng nhập hoặc/và mật khẩu' });
 
         try {
             // Check for existing user
             const user = await User.findOne({ username });
 
-            if (!user) return res.status(400).json({ success: false, message: 'Incorrect username or email/password' });
+            if (!user)
+                return res
+                    .status(400)
+                    .json({ success: false, message: 'Tên đăng nhập hoặc mật khẩu/email không đúng' });
 
             // Username found
             // Check valid password and email valid
             const passwordValid = await agon2.verify(user.password, password);
             const emailValid = user.email === email;
             if (!passwordValid || !emailValid)
-                return res.status(400).json({ success: false, message: 'Incorrect username or email/password' });
+                // Incorrect username or email/password
+                return res
+                    .status(400)
+                    .json({ success: false, message: 'Tên đăng nhập hoặc mật khẩu/email không đúng' });
 
             // All good
             const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET);
 
-            res.status(200).json({ success: true, message: 'Login successfully', accessToken });
+            // Login successfully
+            res.status(200).json({ success: true, message: 'Đăng nhập thành công', accessToken });
         } catch (error) {
+            // Internal server error
             console.log(error);
-            res.status(500).json({ success: false, message: 'Internal server error!' });
+            res.status(500).json({ success: false, message: 'Lỗi từ phía máy chủ!' });
         }
     }
 }

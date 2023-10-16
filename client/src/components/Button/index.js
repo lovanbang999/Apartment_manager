@@ -40,6 +40,7 @@ function Button({
     className,
     leftIcon,
     rightIcon,
+    onclick,
     ...passProps
 }) {
     removeEventWhenDisabled(disabled, passProps);
@@ -55,7 +56,7 @@ function Button({
         disabled,
     });
     return (
-        <Component className={classes} {...passProps} style={style}>
+        <Component className={classes} {...passProps} style={style} onClick={onclick}>
             <Stack direction="row" gap={1} alignItems="center">
                 {leftIcon &&
                     (typeof leftIcon === 'string' ? (
