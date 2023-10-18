@@ -15,6 +15,9 @@ const images = {
     Auth: {
         background: require('./Auth/Background.svg').default,
     },
+    User: {
+        avatarUser1: require('./User/Account1.jpg'),
+    },
 };
 
 export default images;

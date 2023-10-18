@@ -55,6 +55,7 @@ function Button({
         icon16,
         disabled,
     });
+
     return (
         <Component className={classes} {...passProps} style={style} onClick={onclick}>
             <Stack direction="row" gap={1} alignItems="center">

@@ -4,11 +4,13 @@ import './App.css';
 import Landing from './view/Landing';
 import Auth from './view/Auth';
 import AuthContextProvider from './contexts/AuthContext';
-import Home from './view/Home';
+import Home from './view/User/Home';
 import ProtectedRoute from './components/routing/ProtectedRoute';
 import Admin from './view/Admin';
 import TenantList from './view/Admin/TenantList';
 import ContractList from './view/Admin/ContractList';
+import Report from './view/User/Report';
+import Account from './view/Account';
 
 function App() {
     return (
@@ -20,6 +22,8 @@ function App() {
                     <Route exact path="/register" element={<Auth authRoute="register" />} />
                     <Route exact path="/admin" element={<ProtectedRoute component={Admin} />} />
                     <Route exact path="/home" element={<ProtectedRoute component={Home} />} />
+                    <Route exact path="/account" element={<ProtectedRoute component={Account} />} />
+                    <Route exact path="/report" element={<ProtectedRoute component={Report} />} />
                     <Route exact path="/admin/tenant-list" element={<ProtectedRoute component={TenantList} />} />
                     <Route exact path="/admin/contract-list" element={<ProtectedRoute component={ContractList} />} />
                 </Routes>
