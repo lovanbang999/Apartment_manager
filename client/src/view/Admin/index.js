@@ -1,25 +1,16 @@
 import classNames from 'classnames/bind';
-import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faFileContract, faHouse } from '@fortawesome/free-solid-svg-icons';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Logout from '@mui/icons-material/Logout';
 
 import style from './Admin.module.scss';
 import Header from '../../components/Header';
-import { AuthContext } from '../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
 function Admin() {
-    const {
-        authState: {
-            user: { username },
-        },
-        logoutUser,
-    } = useContext(AuthContext);
     const actionsHeader = [
         {
             children: 'Khách thuê',
@@ -40,10 +31,10 @@ function Admin() {
             disabled: true,
         },
         {
-            children: 'Đăng xuất',
-            rightIcon: <Logout />,
+            children: 'Tài khoản',
+            rightIcon: <AccountCircleIcon />,
             style: { color: 'var(--primary-color)' },
-            onclick: logoutUser,
+            to: '/admin/account',
             icon16: true,
         },
     ];

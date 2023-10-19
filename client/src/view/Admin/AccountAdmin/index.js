@@ -18,9 +18,9 @@ import {
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 
 import style from './Account.module.scss';
-import Header from '../../components/Header';
-import images from '../../assets/img';
-import { AuthContext } from '../../contexts/AuthContext';
+import Header from '../../../components/Header';
+import images from '../../../assets/img';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
@@ -34,19 +34,19 @@ function Account() {
 
     const actionsHeader = [
         {
+            children: 'Khách thuê',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/tenant-list',
+        },
+        {
+            children: 'Danh sách hợp đồng',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/contract-list',
+        },
+        {
             children: 'Thông báo',
-            rightIcon: <ArrowDropDownIcon />,
-            style: { color: 'var(--primary-color)' },
-            to: '/home',
-        },
-        {
-            children: 'Thống kê',
-            rightIcon: <ArrowDropDownIcon />,
-            style: { color: 'var(--primary-color)' },
-            disabled: true,
-        },
-        {
-            children: 'Hợp đồng',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
             disabled: true,
@@ -55,7 +55,7 @@ function Account() {
             children: 'Tài khoản',
             rightIcon: <AccountCircleIcon />,
             style: { color: 'var(--primary-color)' },
-            to: '/account',
+            to: '/admin/account',
             icon16: true,
         },
     ];

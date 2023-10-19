@@ -11,6 +11,7 @@ import TenantList from './view/Admin/TenantList';
 import ContractList from './view/Admin/ContractList';
 import Report from './view/User/Report';
 import Account from './view/Account';
+import AccountAdmin from './view/Admin/AccountAdmin';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route exact path="/admin" element={<ProtectedRoute component={Admin} />} />
                     <Route exact path="/home" element={<ProtectedRoute component={Home} />} />
                     <Route exact path="/account" element={<ProtectedRoute component={Account} />} />
+                    <Route exact path="/admin/account" element={<ProtectedRoute component={AccountAdmin} />} />
                     <Route exact path="/report" element={<ProtectedRoute component={Report} />} />
                     <Route exact path="/admin/tenant-list" element={<ProtectedRoute component={TenantList} />} />
                     <Route exact path="/admin/contract-list" element={<ProtectedRoute component={ContractList} />} />

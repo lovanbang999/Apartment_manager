@@ -1,24 +1,15 @@
 import classNames from 'classnames/bind';
-import { useContext } from 'react';
 import React from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import style from './TenantList.module.scss';
 import Button from '../../../components/Button';
 import Header from '../../../components/Header';
 import 'bootstrap/dist/css/bootstrap.css';
-import { AuthContext } from '../../../contexts/AuthContext';
-
 const cx = classNames.bind(style);
 
 function TenantList() {
-    const {
-        authState: {
-            user: { username },
-        },
-        logoutUser,
-    } = useContext(AuthContext);
     const actionsHeader = [
         {
             children: 'Thống kê',
@@ -39,13 +30,14 @@ function TenantList() {
             disabled: true,
         },
         {
-            children: 'Đăng xuất',
-            rightIcon: <LogoutIcon />,
+            children: 'Tài khoản',
+            rightIcon: <AccountCircleIcon />,
             style: { color: 'var(--primary-color)' },
-            onclick: logoutUser,
+            to: '/admin/account',
             icon16: true,
         },
     ];
+
     return (
         <>
             <div className={cx('TenantList')}>
@@ -72,7 +64,6 @@ function TenantList() {
                                         <option className={cx('option-select')} value="Nha_4">
                                             ...
                                         </option>
-                                        <span className={cx('custom-arrow')}></span>
                                     </select>
                                     <Button className={cx('action-icon')}>Xuất File</Button>
                                 </div>
