@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import React from 'react';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import style from './Contract.module.scss';

@@ -51,13 +51,13 @@ function Report() {
                         </select>
                     </div>
                     <div className={cx('report-title')}>
-                        <label className={cx('title-label')} for="report-title">
+                        <label className={cx('title-label')} htmlFor="report-title">
                             Tiêu đề
                         </label>
                         <input id="report-title" />
                     </div>
                     <div className={cx('report-content')}>
-                        <label className={cx('title-label')} for="report-title">
+                        <label className={cx('title-label')} htmlFor="report-title">
                             Nội dung
                         </label>
                         <textarea id="report-title" />

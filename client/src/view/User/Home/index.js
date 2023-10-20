@@ -1,8 +1,5 @@
-import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import LogoutIcon from '@mui/icons-material/Logout';
 import AddIcon from '@mui/icons-material/Add';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -10,18 +7,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import style from './Home.module.scss';
 import images from '../../../assets/img';
 import Header from '../../../components/Header';
-import { AuthContext } from '../../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
 function Home() {
-    const {
-        authState: {
-            user: { username },
-        },
-        logoutUser,
-    } = useContext(AuthContext);
-
     const actionsHeader = [
         {
             children: 'Thông báo',

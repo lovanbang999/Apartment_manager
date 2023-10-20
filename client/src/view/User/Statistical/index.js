@@ -1,4 +1,3 @@
-import { useContext, useState } from 'react';
 import classNames from 'classnames/bind';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,18 +6,10 @@ import { faPrint, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../../components/Header';
 import style from './Statistical.module.scss';
 import Button from '../../../components/Button';
-import { AuthContext } from '../../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
 function Statistical() {
-    const {
-        authState: {
-            user: { username },
-        },
-        logoutUser,
-    } = useContext(AuthContext);
-
     const actionsHeader = [
         {
             children: 'Thông báo',

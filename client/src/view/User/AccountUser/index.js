@@ -18,9 +18,9 @@ import {
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 
 import style from './Account.module.scss';
-import Header from '../../components/Header';
-import images from '../../assets/img';
-import { AuthContext } from '../../contexts/AuthContext';
+import Header from '../../../components/Header';
+import images from '../../../assets/img';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 

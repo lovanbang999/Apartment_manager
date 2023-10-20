@@ -10,8 +10,8 @@ import Admin from './view/Admin';
 import TenantList from './view/Admin/TenantList';
 import ContractList from './view/Admin/ContractList';
 import Report from './view/User/Report';
-import Account from './view/Account';
 import AccountAdmin from './view/Admin/AccountAdmin';
+import AccountUser from './view/User/AccountUser';
 import StatisticalUser from './view/User/Statistical';
 import StatisticalAdmin from './view/Admin/Statistical';
 import Contract from './view/User/Contract';
@@ -26,7 +26,7 @@ function App() {
                     <Route exact path="/register" element={<Auth authRoute="register" />} />
                     <Route exact path="/admin" element={<ProtectedRoute component={Admin} />} />
                     <Route exact path="/home" element={<ProtectedRoute component={Home} />} />
-                    <Route exact path="/account" element={<ProtectedRoute component={Account} />} />
+                    <Route exact path="/account" element={<ProtectedRoute component={AccountUser} />} />
                     <Route exact path="/admin/account" element={<ProtectedRoute component={AccountAdmin} />} />
                     <Route exact path="/admin/tenant-list" element={<ProtectedRoute component={TenantList} />} />
                     <Route exact path="/admin/contract-list" element={<ProtectedRoute component={ContractList} />} />

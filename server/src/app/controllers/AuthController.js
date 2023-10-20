@@ -87,7 +87,7 @@ class AuthController {
                 process.env.ACCESS_TOKEN_SECRET,
             );
 
-            res.status(200).json({ success: true, message: 'Login successfully!', accessToken });
+            res.status(200).json({ success: true, message: 'Login successfully!', accessToken, roles: user.roles });
         } catch (error) {
             console.log(error);
             res.status(500).json({ success: false, message: 'Internal server error!' });
