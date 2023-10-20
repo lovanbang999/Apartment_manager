@@ -1,0 +1,145 @@
+.container {
+    min-height: 100vh;
+    background: rgba(239, 239, 239, 0.7);
+    margin-top: var(--header-height);
+    padding-top: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box_header {
+    padding-top: 43px;
+}
+
+.header_text {
+    margin-left: 158px;
+    color: #007c7e;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: normal;
+}
+
+.header_select {
+    color: #007c7e;
+}
+.select_text {
+    padding-left: 16px;
+}
+.title {
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 4px;
+}
+.title_text {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.title_note {
+    margin-left: 1100px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer_text {
+    margin-left: 160px;
+    font-size: 15px;
+}
+
+.header_select {
+    width: 20%;
+    border-radius: 5px;
+    margin-right: 160px;
+    border: 2px solid rgba(0, 124, 126, 0.7);
+    background: rgba(239, 239, 239, 0.7);
+    color: #007c7e;
+    padding: 9px 12px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    gap: 300px;
+    cursor: pointer;
+}
+.table {
+    margin: auto;
+    width: 1195px;
+    height: 100px;
+    background: rgba(239, 239, 239, 0.7);
+    font-size: 20px;
+}
+
+.table th,
+td {
+    border: 1px solid #000;
+}
+
+.table tbody {
+    line-height: 1;
+}
+
+.table tr {
+    text-align: center;
+
+    th {
+        background: rgba(239, 239, 239, 0.7);
+    }
+
+    td {
+        background: rgba(239, 239, 239, 0.7);
+    }
+}
+
+.box_footer {
+    margin-top: 16px;
+    font-size: 15px;
+    display: flex;
+}
+
+.footer_function {
+    width: 440px;
+    height: 40px;
+    color: #007c7e;
+    font-size: 12px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin: 16px 0 0 443px;
+    display: flex;
+}
+
+.function_text {
+    width: 210px;
+    padding: 12px 5px;
+}
+
+.function_text .footer_text {
+    border-left: 3px;
+    letter-spacing: 1.2px;
+}
+.cb {
+    color: #007c7e;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.cb1 {
+    margin-right: 4px;
+}
+
+.icon1,
+.icon2 {
+    font-size: 12px;
+    color: #007c7e;
+    border-left: 1px solid #007c7e;
+}
+
+.icon2 {
+    margin-left: 0 !important;
+}
