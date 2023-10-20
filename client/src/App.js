@@ -11,7 +11,6 @@ import TenantList from './view/Admin/TenantList';
 import ContractList from './view/Admin/ContractList';
 import Report from './view/User/Report';
 import AccountAdmin from './view/Admin/AccountAdmin';
-import AccountUser from './view/User/AccountUser';
 import StatisticalUser from './view/User/Statistical';
 import StatisticalAdmin from './view/Admin/Statistical';
 import Contract from './view/User/Contract';
@@ -25,15 +24,16 @@ function App() {
                     <Route exact path="/login" element={<Auth authRoute="login" />} />
                     <Route exact path="/register" element={<Auth authRoute="register" />} />
                     <Route exact path="/admin" element={<ProtectedRoute component={Admin} />} />
+                    <Route
+                        exact
+                        path="/admin/create-account"
+                        element={<ProtectedRoute component={AccountManagement} />}
+                    />
                     <Route exact path="/home" element={<ProtectedRoute component={Home} />} />
                     <Route exact path="/account" element={<ProtectedRoute component={AccountUser} />} />
                     <Route exact path="/admin/account" element={<ProtectedRoute component={AccountAdmin} />} />
                     <Route exact path="/admin/tenant-list" element={<ProtectedRoute component={TenantList} />} />
                     <Route exact path="/admin/contract-list" element={<ProtectedRoute component={ContractList} />} />
-                    <Route exact path="/admin/statistical" element={<ProtectedRoute component={StatisticalAdmin} />} />
-                    <Route exact path="/user/statistical" element={<ProtectedRoute component={StatisticalUser} />} />
-                    <Route exact path="/user/contract" element={<ProtectedRoute component={Contract} />} />
-                    <Route exact path="/report" element={<ProtectedRoute component={Report} />} />
                 </Routes>
             </Router>
         </AuthContextProvider>

@@ -31,6 +31,13 @@ function Admin() {
             disabled: true,
         },
         {
+            children: 'Quản lý tài khoản',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/create-account',
+            icon16: true,
+        },
+        {
             children: 'Tài khoản',
             rightIcon: <AccountCircleIcon />,
             style: { color: 'var(--primary-color)' },
