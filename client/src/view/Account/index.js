@@ -43,13 +43,13 @@ function Account() {
             children: 'Thống kê',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
-            disabled: true,
+            to: '/user/statistical',
         },
         {
             children: 'Hợp đồng',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
-            disabled: true,
+            to: '/user/contract',
         },
         {
             children: 'Tài khoản',

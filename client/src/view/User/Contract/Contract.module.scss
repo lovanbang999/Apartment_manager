@@ -1,0 +1,82 @@
+.TenantList {
+    min-height: 100vh;
+    background: rgba(239, 239, 239, 0.7);
+}
+
+.ft-1 {
+    width: 100%;
+    color: #007c7e;
+    padding-top: 15rem;
+    margin-left: 55px;
+    padding-bottom: 3rem;
+}
+
+.ft-1 h3 {
+    font-size: 40px;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
+
+.ft-1 button {
+    margin-left: 1083px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #007c7e;
+    background: #d9d9d9;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 500;
+}
+
+.table {
+    margin: auto;
+    width: 1195px;
+    height: 100px;
+    background: rgba(239, 239, 239, 0.7);
+    font-size: 20px;
+}
+
+.table th,
+td {
+    border: 1px solid #000;
+}
+
+.table tbody {
+    line-height: 2;
+}
+
+.table tr {
+    text-align: center;
+
+    th {
+        background: rgba(239, 239, 239, 0.7);
+    }
+
+    td {
+        background: rgba(239, 239, 239, 0.7);
+    }
+}
+
+.st-1 select {
+    width: 30%;
+    border-radius: 5px;
+    background: #d9d9d9;
+    color: #007c7e;
+    padding: 9px 16px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    gap: 300px;
+    cursor: pointer;
+}
+.custom-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background-color: #ffffff;
+    height: 100%;
+    width: 32%;
+    pointer-events: none;
+}

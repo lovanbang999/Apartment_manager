@@ -241,7 +241,7 @@ function AccountManagement() {
                                 </li>
                             </ul>
                             <Link outline="true" className={cx('logout-btn')}>
-                                gỡ tài khoản
+                                Gỡ Tài Khoản
                             </Link>
                         </div>
                     </div>

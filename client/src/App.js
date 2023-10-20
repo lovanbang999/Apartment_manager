@@ -31,14 +31,8 @@ function App() {
                     <Route exact path="/home" element={<ProtectedRoute component={Home} />} />
                     <Route exact path="/account" element={<ProtectedRoute component={Account} />} />
                     <Route exact path="/admin/account" element={<ProtectedRoute component={AccountAdmin} />} />
-                    <Route exact path="/report" element={<ProtectedRoute component={Report} />} />
                     <Route exact path="/admin/tenant-list" element={<ProtectedRoute component={TenantList} />} />
                     <Route exact path="/admin/contract-list" element={<ProtectedRoute component={ContractList} />} />
-                    <Route
-                        exact
-                        path="/admin/account-management"
-                        element={<ProtectedRoute component={AccountManagement} />}
-                    />
                 </Routes>
             </Router>
         </AuthContextProvider>
