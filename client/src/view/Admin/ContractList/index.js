@@ -25,10 +25,24 @@ function ContractList() {
             to: '/admin/tenant-list',
         },
         {
+            children: 'Danh sách hợp đồng',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/contract-list',
+            disabled: true,
+        },
+        {
             children: 'Thông báo',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
             disabled: true,
+        },
+        {
+            children: 'Quản lý tài khoản',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/account-management',
+            icon16: true,
         },
         {
             children: 'Tài khoản',

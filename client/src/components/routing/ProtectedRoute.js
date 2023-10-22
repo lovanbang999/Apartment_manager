@@ -5,10 +5,14 @@ import classNames from 'classnames/bind';
 
 import { AuthContext } from '../../contexts/AuthContext';
 import style from './Protected.module.scss';
+import { LOCAL_STORAGE_TOKEN_ROLE } from '../../contexts/constants';
 
 const cx = classNames.bind(style);
 
-function ProtectedRoute({ component: Component, ...routeProps }) {
+function ProtectedRoute({ component: Component, allowedRoles, ...routeProps }) {
+    const roles = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN_ROLE));
+    const codeRoles = roles && Object.values(roles);
+
     const {
         authState: { authLoading, isAuthenticated },
     } = useContext(AuthContext);
@@ -19,8 +23,13 @@ function ProtectedRoute({ component: Component, ...routeProps }) {
                 <Spinner animation="border" variant="info" />
             </div>
         );
+    } else if (isAuthenticated) {
+        const isValid = !!codeRoles.find((code) => allowedRoles?.includes(code));
+
+        return isValid ? <Component {...routeProps} /> : <Navigate to="/user" />;
     }
-    return <>{isAuthenticated ? <Component {...routeProps} /> : <Navigate to="/login" />}</>;
+
+    return <Navigate to="/login" />;
 }
 
 export default ProtectedRoute;

@@ -34,6 +34,12 @@ function Account() {
 
     const actionsHeader = [
         {
+            children: 'Thống kê',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin',
+        },
+        {
             children: 'Khách thuê',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
@@ -52,11 +58,19 @@ function Account() {
             disabled: true,
         },
         {
+            children: 'Quản lý tài khoản',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/account-management',
+            icon16: true,
+        },
+        {
             children: 'Tài khoản',
             rightIcon: <AccountCircleIcon />,
             style: { color: 'var(--primary-color)' },
             to: '/admin/account',
             icon16: true,
+            disabled: true,
         },
     ];
 
@@ -71,11 +85,6 @@ function Account() {
         const btn = e.target.closest(`.${cx('menu-item-btn')}`);
 
         const namebtn = btn.name;
-
-        // const newActivebtn = activebtn.forEach((element) => {
-        //     console.log(element);
-        // });
-        // console.log(newActivebtn);
 
         if (namebtn === 'personalInfor') {
             setActiveBtn({

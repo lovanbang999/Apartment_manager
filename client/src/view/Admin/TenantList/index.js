@@ -18,6 +18,13 @@ function TenantList() {
             to: '/admin',
         },
         {
+            children: 'Khách thuê',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/tenant-list',
+            disabled: true,
+        },
+        {
             children: 'Danh sách hợp đồng',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
@@ -28,6 +35,13 @@ function TenantList() {
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
             disabled: true,
+        },
+        {
+            children: 'Quản lý tài khoản',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/account-management',
+            icon16: true,
         },
         {
             children: 'Tài khoản',
@@ -129,17 +143,6 @@ function TenantList() {
                                     <td>Phường Đằng Lâm / Quận Hải An / TP Hải Phòng</td>
                                 </tr>
                             </tbody>
-
-                            <tfoot className={cx('tb-foot')}>
-                                <tr>
-                                    <td>​</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

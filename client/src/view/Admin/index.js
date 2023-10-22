@@ -13,6 +13,13 @@ const cx = classNames.bind(style);
 function Admin() {
     const actionsHeader = [
         {
+            children: 'Thống kê',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin',
+            disabled: true,
+        },
+        {
             children: 'Khách thuê',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
@@ -34,7 +41,7 @@ function Admin() {
             children: 'Quản lý tài khoản',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
-            to: '/admin/create-account',
+            to: '/admin/account-management',
             icon16: true,
         },
         {

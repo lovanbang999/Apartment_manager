@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, json } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 import classNames from 'classnames/bind';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -12,6 +12,7 @@ import style from './Landing.module.scss';
 import Header from '../../components/Header';
 import images from '../../assets/img';
 import Footer from '../../components/Footer';
+import { LOCAL_STORAGE_TOKEN_ROLE } from '../../contexts/constants';
 
 const cx = classNames.bind(style);
 
@@ -47,14 +48,18 @@ function Landing() {
         authState: { authLoading, isAuthenticated },
     } = useContext(AuthContext);
 
+    const roles = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TOKEN_ROLE));
+
     if (authLoading) {
         return (
             <div className={cx('spinner-wrapper')}>
                 <Spinner animation="border" variant="info" />
             </div>
         );
-    } else if (isAuthenticated) {
-        return <Navigate to="/home" />;
+    } else if (isAuthenticated && roles.Admin && roles.Admin === 2004) {
+        return <Navigate to="/admin" />;
+    } else if (isAuthenticated && roles.User && roles.User === 2000) {
+        return <Navigate to="/user" />;
     }
 
     return (

@@ -14,7 +14,7 @@ function Contract() {
         {
             children: 'Thông báo',
             style: { color: 'var(--primary-color)' },
-            to: '/home',
+            to: '/user',
         },
         {
             children: 'Thống kê',

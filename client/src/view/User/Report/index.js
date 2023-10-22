@@ -13,7 +13,7 @@ function Report() {
             children: 'Thông báo',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
-            to: '/home',
+            to: '/user',
         },
         {
             children: 'Thống kê',

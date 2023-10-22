@@ -101,12 +101,6 @@ function Login() {
                 <Button className={cx('submit-btn')} variant="success" type="submit">
                     Đăng nhập
                 </Button>
-                <p className={cx('desc')}>
-                    Bạn chưa có tài khoản?
-                    <Link to="/register">
-                        <Button variant="infor">Đăng ký</Button>
-                    </Link>
-                </p>
             </Form>
         </div>
     );

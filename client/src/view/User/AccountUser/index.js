@@ -37,7 +37,7 @@ function Account() {
             children: 'Thông báo',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
-            to: '/home',
+            to: '/user',
         },
         {
             children: 'Thống kê',
@@ -71,11 +71,6 @@ function Account() {
         const btn = e.target.closest(`.${cx('menu-item-btn')}`);
 
         const namebtn = btn.name;
-
-        // const newActivebtn = activebtn.forEach((element) => {
-        //     console.log(element);
-        // });
-        // console.log(newActivebtn);
 
         if (namebtn === 'personalInfor') {
             setActiveBtn({

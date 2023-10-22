@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -9,25 +8,26 @@ import {
     faBriefcase,
     faCopy,
     faEnvelope,
-    faIdBadge,
     faLocationDot,
     faPhoneVolume,
-    faRightFromBracket,
-    faUserShield,
     faHouse,
 } from '@fortawesome/free-solid-svg-icons';
-import { faEye } from '@fortawesome/free-regular-svg-icons';
 
 import Button from '../../../components/Button';
 import style from './AccountManagement.module.scss';
 import Header from '../../../components/Header';
 import images from '../../../assets/img';
-import { AuthContext } from '../../../contexts/AuthContext';
 
 const cx = classNames.bind(style);
 
 function AccountManagement() {
     const actionsHeader = [
+        {
+            children: 'Thống kê',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin',
+        },
         {
             children: 'Khách thuê',
             rightIcon: <ArrowDropDownIcon />,
@@ -44,6 +44,14 @@ function AccountManagement() {
             children: 'Thông báo',
             rightIcon: <ArrowDropDownIcon />,
             style: { color: 'var(--primary-color)' },
+            disabled: true,
+        },
+        {
+            children: 'Quản lý tài khoản',
+            rightIcon: <ArrowDropDownIcon />,
+            style: { color: 'var(--primary-color)' },
+            to: '/admin/account-management',
+            icon16: true,
             disabled: true,
         },
         {

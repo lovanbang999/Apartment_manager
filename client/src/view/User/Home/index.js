@@ -15,6 +15,7 @@ function Home() {
         {
             children: 'Thông báo',
             style: { color: 'var(--primary-color)' },
+            to: '/user',
             disabled: true,
         },
         {
@@ -44,7 +45,7 @@ function Home() {
                     <div className={cx('notification-inner')}>
                         <div className={cx('notifiaction-header')}>
                             <h2 className={cx('notifiaction-header-title')}>Thông báo sự cố</h2>
-                            <Link className={cx('notifiaction-add-infor')} to="/report">
+                            <Link className={cx('notifiaction-add-infor')} to="/user/report">
                                 <span>Thêm sự cố</span>
                                 <AddIcon />
                             </Link>

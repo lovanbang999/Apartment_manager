@@ -2,7 +2,7 @@ import { createContext, useReducer, useEffect } from 'react';
 import axios from 'axios';
 
 import setAuthToken from '../utils/setAuthToken';
-import { apiUrl, LOCAL_STORAGE_TOKEN_NAME } from './constants';
+import { apiUrl, LOCAL_STORAGE_TOKEN_NAME, LOCAL_STORAGE_TOKEN_ROLE } from './constants';
 import { authReducer } from '../reducers/authReducer';
 
 const AuthContext = createContext();
@@ -56,9 +56,9 @@ const AuthContextProvider = ({ children }) => {
         try {
             const response = await axios.post(`${apiUrl}/auth/login`, userForm);
 
-            console.log(response.data.roles);
             if (response.data.success) {
                 localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken);
+                localStorage.setItem(LOCAL_STORAGE_TOKEN_ROLE, JSON.stringify(response.data.roles));
             }
 
             await loadUser();
@@ -76,12 +76,6 @@ const AuthContextProvider = ({ children }) => {
         try {
             const response = await axios.post(`${apiUrl}/auth/register`, userForm);
 
-            if (response.data.success) {
-                localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken);
-            }
-
-            await loadUser();
-
             return response.data;
         } catch (error) {
             if (error.response.data) return error.response.data;
@@ -93,6 +87,7 @@ const AuthContextProvider = ({ children }) => {
     // Logout
     const logoutUser = () => {
         localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME);
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN_ROLE);
         setAuthToken(null);
         dispatch({
             type: 'SET_AUTH',

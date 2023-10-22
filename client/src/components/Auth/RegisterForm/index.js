@@ -1,7 +1,6 @@
 import classname from 'classnames/bind';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
 
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -35,7 +34,7 @@ function RegisterFrom() {
         if (password !== confirmPassword) {
             setAlert({
                 type: 'danger',
-                message: 'Password do not match',
+                message: 'Mật khẩu không khớp',
             });
             setTimeout(() => {
                 setAlert(null);
@@ -49,12 +48,23 @@ function RegisterFrom() {
             if (!registerData.success) {
                 setAlert({
                     type: 'danger',
-                    message: registerData.message,
+                    message: 'Người dùng đã tồn tại',
                 });
                 setTimeout(() => {
                     setAlert(null);
                 }, 3000);
+                setRegisterForm({ username: '', email: '', password: '', confirmPassword: '' });
+                return;
             }
+
+            setAlert({
+                type: 'success',
+                message: 'Tạo tài khoản người dùng thành công',
+            });
+            setTimeout(() => {
+                setAlert(null);
+            }, 3000);
+            setRegisterForm({ username: '', email: '', password: '', confirmPassword: '' });
         } catch (error) {
             console.log(error);
         }
@@ -63,7 +73,7 @@ function RegisterFrom() {
     return (
         <div className={cx('wrapper')}>
             <Form className={cx('form')} onSubmit={register}>
-                <h3 className={cx('heading')}>Đăng Ký</h3>
+                <h3 className={cx('heading')}>TẠO TÀI KHOẢN</h3>
                 <AlertMessage info={alert} />
                 <Form.Group className={cx('form-group')}>
                     <Form.Label className={cx('form-label')} htmlFor="username">
@@ -126,14 +136,8 @@ function RegisterFrom() {
                     ></Form.Control>
                 </Form.Group>
                 <Button className={cx('submit-btn')} variant="success" type="submit">
-                    Đăng ký
+                    Tạo tài khoản
                 </Button>
-                <p className={cx('desc')}>
-                    Bạn đã có tài khoản?
-                    <Link to="/login">
-                        <Button variant="infor">Đăng nhập</Button>
-                    </Link>
-                </p>
             </Form>
         </div>
     );
